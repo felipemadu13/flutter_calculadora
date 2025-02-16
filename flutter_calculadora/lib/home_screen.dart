@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculadora/calculation_screen.dart';
+import 'package:flutter_calculadora/set_value_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +16,7 @@ class _HomeScreen extends State<HomeScreen> {
   Future<void> _atualizarValor(String incognita) async {
     final resultado = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => CalculationScreen(incognita: incognita),
+        builder: (context) => SetValueScreen(incognita: incognita),
       ),
     );
 

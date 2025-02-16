@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CalculationScreen extends StatefulWidget {
-  const CalculationScreen({required this.incognita, super.key});
+class SetValueScreen extends StatefulWidget {
+  const SetValueScreen({required this.incognita, super.key});
 
   final String incognita;
 
   @override
-  State<CalculationScreen> createState() {
-    return _CalculationScreen();
+  State<SetValueScreen> createState() {
+    return _SetValueScreen();
   }
 }
 
-class _CalculationScreen extends State<CalculationScreen> {
+class _SetValueScreen extends State<SetValueScreen> {
   final TextEditingController _controller = TextEditingController();
-  num? valorSelecionado;
   late String incognitaSelecionada;
 
   @override
   void initState() {
     super.initState();
-    incognitaSelecionada = widget.incognita == 'X' ? 'X' : 'Y';
+    incognitaSelecionada = widget.incognita;
   }
 
   @override
@@ -47,11 +46,6 @@ class _CalculationScreen extends State<CalculationScreen> {
                     controller: _controller,
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    onChanged: (value) {
-                      setState(() {
-                        valorSelecionado = num.tryParse(value);
-                      });
-                    },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
